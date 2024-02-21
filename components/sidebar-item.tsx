@@ -10,13 +10,14 @@ interface SidebarItemProps {
 }
 
 
-export default function SidebarItem({ icon, label, active, href }: SidebarItemProps) {
+export default function SidebarItem({ icon: Icon, label, active, href }: SidebarItemProps) {
     return (
         <Link
-            className={twMerge("flex flex-row h-auto items-center w-full gap-x-4 text-md font-medium cursor-pointer hover:text-white transition text-neutral-400 py-1")} 
+            className={twMerge("flex h-auto items-center w-full gap-x-4 text-md font-medium cursor-pointer hover:text-white transition text-neutral-400 py-1", active && "text-white")} 
             href={href}
         >
-            Sidebar Item
+            <Icon size={26} />
+            <p className="truncate w-full">{label}</p>
         </Link>
     )
 }
