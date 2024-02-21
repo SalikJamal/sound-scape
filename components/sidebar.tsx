@@ -5,6 +5,7 @@ import { useMemo } from "react"
 import { BiSearch } from "react-icons/bi"
 import { HiHome } from "react-icons/hi"
 import Box from "./Box"
+import SidebarItem from "./sidebar-item"
 
 interface SidebarProps {
     children: React.ReactNode;
