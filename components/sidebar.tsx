@@ -4,16 +4,16 @@ import { usePathname } from "next/navigation"
 import { useMemo } from "react"
 import { BiSearch } from "react-icons/bi"
 import { HiHome } from "react-icons/hi"
-import Box from "./Box"
-import SidebarItem from "./sidebar-item"
-import Library from "./library"
+import Box from "@/components/box"
+import SidebarItem from "@/components/sidebar-item"
+import Library from "@/components/library"
 
-interface SidebarProps {
+interface ISidebarProps {
     children: React.ReactNode;
 }
 
 
-export default function Sidebar({ children }: SidebarProps) {
+export default function Sidebar({ children }: ISidebarProps) {
 
     const pathname = usePathname()
 
@@ -49,10 +49,10 @@ export default function Sidebar({ children }: SidebarProps) {
                 <Box className="overflow-y-auto h-full">
                     <Library />
                 </Box>
-                <main className="h-full flex-1 overflow-y-auto py-2">
-                    {children}
-                </main>
             </div>
+            <main className="h-full flex-1 overflow-y-auto py-2">
+                {children}
+            </main>
         </div>
     )
 }

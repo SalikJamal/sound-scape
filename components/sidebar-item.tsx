@@ -2,7 +2,7 @@ import Link from "next/link"
 import { IconType } from "react-icons"
 import { twMerge } from "tailwind-merge"
 
-interface SidebarItemProps {
+interface ISidebarItemProps {
     icon: IconType;
     label: string;
     active?: boolean;
@@ -10,7 +10,7 @@ interface SidebarItemProps {
 }
 
 
-export default function SidebarItem({ icon: Icon, label, active, href }: SidebarItemProps) {
+export default function SidebarItem({ icon: Icon, label, active, href }: ISidebarItemProps) {
     return (
         <Link
             className={twMerge("flex h-auto items-center w-full gap-x-4 text-md font-medium cursor-pointer hover:text-white transition text-neutral-400 py-1", active && "text-white")} 
