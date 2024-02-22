@@ -33,7 +33,7 @@ export default function Sidebar({ children }: ISidebarProps) {
     ], [pathname])
 
     return (
-        <div className="flex h-full">
+        <div className="flex h-full px-2 md:px-0">
             <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
                 <Box>
                     <div className="flex flex-col gap-y-4 px-5 py-4">
