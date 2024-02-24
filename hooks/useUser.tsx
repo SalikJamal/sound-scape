@@ -18,7 +18,7 @@ export interface UserProviderProps {
     [propName: string]: any;
 }
 
-export const UserProvider = (props: UserProviderProps) => {
+export const MyUserContextProvider = (props: UserProviderProps) => {
     const { session, isLoading: isLoadingUser, supabaseClient: supabase } = useSessionContext()
 
     const user = useSupaUser()
@@ -68,7 +68,7 @@ export const UserProvider = (props: UserProviderProps) => {
 
 export const useUser = () => {
     const context = useContext(UserContext)
-    
+
     if(context === undefined) {
         throw new Error("useUser must be used within a UserProvider")
     }
