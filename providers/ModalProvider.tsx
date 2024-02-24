@@ -1,6 +1,6 @@
 "use client"
 
-import { Modal } from "@/components/modal"
+import { AuthModal } from "@/components/auth-modal"
 import { useEffect, useState } from "react"
 
 
@@ -15,13 +15,6 @@ export default function ModalMProvider() {
     if(!isMounted) return null
 
     return (
-        <Modal
-            title="Test Modal"
-            description="Test description"
-            isOpen
-            onChange={() => {}}
-        >
-            Test Children
-        </Modal>
+        <AuthModal />
     )
 }
