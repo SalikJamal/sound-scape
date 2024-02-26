@@ -5,10 +5,7 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 
 const Input = forwardRef<HTMLInputElement, IInputProps>(({ 
-    className,
-    type,
-    disabled,
-    ...props
+    className, disabled, type, ...props
 }, ref) => {
     return (
         <input
@@ -18,6 +15,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
             disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none`, className)}
             type={type}
             ref={ref}
+            disabled={disabled}
             {...props} 
         />
     )
