@@ -159,7 +159,7 @@ export default function UploadModal() {
                 </div>
 
                 <Button
-                    className="text-white"
+                    className="text-white hover:scale-105"
                     type="submit"
                     disabled={isLoading}
                 >
