@@ -10,7 +10,7 @@ interface IModalProps {
 }
 
 
-export function Modal({ isOpen, onChange, title, description, children }: IModalProps) {
+export default function Modal({ isOpen, onChange, title, description, children }: IModalProps) {
     return (
         <Dialog.Root
             open={isOpen}

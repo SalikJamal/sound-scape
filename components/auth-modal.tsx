@@ -1,6 +1,6 @@
 "use client"
 
-import { Modal } from "@/components/modal"
+import Modal from "@/components/modal"
 import useAuthModal from "@/hooks/useAuthModal"
 import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-react"
 import { Auth } from "@supabase/auth-ui-react"

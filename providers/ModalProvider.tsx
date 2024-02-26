@@ -1,6 +1,7 @@
 "use client"
 
 import { AuthModal } from "@/components/auth-modal"
+import UploadModal from "@/components/upload-modal"
 import { useEffect, useState } from "react"
 
 
@@ -15,6 +16,9 @@ export default function ModalMProvider() {
     if(!isMounted) return null
 
     return (
-        <AuthModal />
+        <>
+            <AuthModal />
+            <UploadModal />
+        </>
     )
 }
