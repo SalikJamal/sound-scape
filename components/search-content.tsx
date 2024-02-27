@@ -1,8 +1,8 @@
 "use client"
 
 import { ISong } from "@/types/types"
-import SongItem from "@/components/song-item"
 import MediaItem from "./media-item"
+import LikeButton from "@/components/like-button"
 
 interface ISearchContentProps {
     songs: ISong[]
@@ -32,7 +32,7 @@ export default function SearchContent({ songs }: ISearchContentProps) {
                             onClick={() => {}}
                         />
                     </div>
-                    {/* Add Like button here */}
+                    <LikeButton songId={song.id} />
                 </div>
             ))}
         </div>
