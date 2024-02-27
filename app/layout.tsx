@@ -6,6 +6,7 @@ import SupabaseProvider from "@/providers/SupabaseProvider"
 import UserProvider from "@/providers/UserProvider"
 import ModalMProvider from "@/providers/ModalProvider"
 import ToasterProvider from "@/providers/ToasterProvider"
+import getSongsByUserId from "@/actions/getSongsByUserId"
 
 const figTree = Figtree({ subsets: ["latin"] })
 
@@ -14,12 +15,15 @@ export const metadata: Metadata = {
   description: "Stream music from anywhere in the world"
 }
 
+export const revalidate = 0
 
-export default function RootLayout({
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const userSongs = await getSongsByUserId()
   return (
     <html lang="en">
       <body className={figTree.className}>
@@ -27,7 +31,7 @@ export default function RootLayout({
           <SupabaseProvider>
             <UserProvider>
               <ModalMProvider />
-              <Sidebar>
+              <Sidebar songs={userSongs}>
                 {children}
               </Sidebar>
             </UserProvider>

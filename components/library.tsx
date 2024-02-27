@@ -5,9 +5,15 @@ import { useUser } from "@/hooks/useUser"
 import useUploadModal  from "@/hooks/useUploadModal"
 import { AiOutlinePlus } from "react-icons/ai"
 import { TbPlaylist } from "react-icons/tb"
+import { ISong } from "@/types/types"
+import MediaItem from "@/components/media-item"
+
+interface ILibraryProps {
+    songs: ISong[];
+}
 
 
-export default function Library() {
+export default function Library({ songs }: ILibraryProps) {
 
     const authModal = useAuthModal()
     const uploadModal = useUploadModal()
@@ -36,7 +42,13 @@ export default function Library() {
                 />
             </div>
             <div className="flex flex-col gap-y-2 mt-4 px-3">
-                List of Songs!
+                {songs.map((song) => (
+                    <MediaItem
+                        key={song.id}
+                        onClick={() => {}}
+                        data={song}
+                    />
+                ))}
             </div>
         </div>
     )

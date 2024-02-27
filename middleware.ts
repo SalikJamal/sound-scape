@@ -2,7 +2,7 @@ import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs"
 import { NextRequest, NextResponse } from "next/server"
 
 
-export async function middlware(req: NextRequest) {
+export default async function middlware(req: NextRequest) {
     const res = NextResponse.next()
     const supabase = createMiddlewareClient({ req, res })
 

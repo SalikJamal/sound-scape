@@ -7,13 +7,15 @@ import { HiHome } from "react-icons/hi"
 import Box from "@/components/box"
 import SidebarItem from "@/components/sidebar-item"
 import Library from "@/components/library"
+import { ISong } from "@/types/types"
 
 interface ISidebarProps {
     children: React.ReactNode;
+    songs: ISong[];
 }
 
 
-export default function Sidebar({ children }: ISidebarProps) {
+export default function Sidebar({ children, songs }: ISidebarProps) {
 
     const pathname = usePathname()
 
@@ -47,7 +49,7 @@ export default function Sidebar({ children }: ISidebarProps) {
                     
                 </Box>
                 <Box className="overflow-y-auto h-full">
-                    <Library />
+                    <Library songs={songs} />
                 </Box>
             </div>
             <main className="h-full flex-1 overflow-y-auto py-2">
