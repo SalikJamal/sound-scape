@@ -8,8 +8,6 @@ import { useState, useEffect } from "react"
 import toast from "react-hot-toast"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 
-export const revalidate = 0
-
 interface ILikeButtonProps {
     songId: string;
 }
@@ -24,7 +22,6 @@ export default function LikeButton({ songId }: ILikeButtonProps) {
     const { supabaseClient } = useSessionContext()
     const { user } = useUser()
     
-    const Icon = isLiked ? AiFillHeart : AiOutlineHeart
 
     const handleLike = async () => {
         if(!user) return authModal.onOpen()
@@ -59,7 +56,7 @@ export default function LikeButton({ songId }: ILikeButtonProps) {
     }
 
     useEffect(() => {
-        if(user?.id) return
+        if(!user?.id) return
 
         const fetchData = async () => {
             const { data, error } = await supabaseClient
@@ -70,10 +67,12 @@ export default function LikeButton({ songId }: ILikeButtonProps) {
                 .single()
 
             if(!error && data) setIsLiked(true)
-
         }
+
+        fetchData()
     }, [songId, supabaseClient, user?.id])
 
+    const Icon = isLiked ? AiFillHeart : AiOutlineHeart
 
     return (
         <button
