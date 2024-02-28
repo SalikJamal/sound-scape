@@ -2,6 +2,7 @@
 
 import { ISong } from "@/types/types"
 import SongItem from "@/components/song-item"
+import useOnPlay from "@/hooks/useOnPlay"
 
 interface IPageContentProps {
     songs: ISong[]
@@ -10,6 +11,8 @@ interface IPageContentProps {
 
 export default function PageContent({ songs }: IPageContentProps) {
     
+    const onPlay = useOnPlay(songs)
+
     if(songs.length === 0) {
         return (
             <div className="mt-4 text-neutral-400">
@@ -23,7 +26,7 @@ export default function PageContent({ songs }: IPageContentProps) {
             {songs.map((song) => (
                 <SongItem
                     key={song.id}
-                    onClick={() => {}}
+                    onClick={(id: string) => onPlay(id)}
                     data={song}
                 />
             ))}
