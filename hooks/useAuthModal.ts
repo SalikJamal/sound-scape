@@ -13,4 +13,5 @@ const useAuthModal = create<IAuthModalStore>((set) => ({
     onClose: () => set({ isOpen: false })
 }))
 
+
 export default useAuthModal

@@ -38,6 +38,11 @@ export interface IPrice {
 }
 
 
+export interface IProductWithPrice extends IProduct {
+    prices?: IPrice[]
+}
+
+
 export interface ISubscription {
     id: string;
     user_id: string;
