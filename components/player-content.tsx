@@ -19,9 +19,22 @@ interface IPlayerContentProps {
 
 export default function PlayerContent({ song, songPath }: IPlayerContentProps) {
    
+    const player = usePlayer()
     const [volume, setVolume] = useState(1)
     const [isPlaying, setIsPlaying] = useState(false)
-    const player = usePlayer()
+    const [play, { pause, sound }] = useSound(
+        songPath,
+        {
+            volume,
+            onplay: () => setIsPlaying(true),
+            onpause: () => setIsPlaying(false),
+            onend: () => {
+                setIsPlaying(false)
+                onPlayNext()
+            },
+            format: ["mp3"]
+        }
+    )
 
     const Icon = isPlaying ? BsPauseFill : BsPlayFill
     const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave
@@ -46,19 +59,6 @@ export default function PlayerContent({ song, songPath }: IPlayerContentProps) {
         player.setId(previousSong)
     }
 
-    const [play, { pause, sound }] = useSound(
-        songPath,
-        {
-            volume,
-            onplay: () => setIsPlaying(true),
-            onpause: () => setIsPlaying(false),
-            onend: () => {
-                setIsPlaying(false)
-                onPlayNext()
-            },
-            format: ["mp3"]
-        }
-    )
 
     const handlePlay = () => {
         if(!isPlaying) {
