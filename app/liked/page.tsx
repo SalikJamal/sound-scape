@@ -21,6 +21,7 @@ export default async function Like() {
                                 src="/images/liked.png"
                                 alt="Playlist"
                                 fill
+                                sizes="100%"
                                 title="Playlist"
                             />
                         </div>
