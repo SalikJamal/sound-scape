@@ -25,6 +25,7 @@ export default function SongItem({ data, onClick }: ISongItemProps) {
                     className="object-cover"
                     src={imagePath || "/images/liked.png"}
                     fill
+                    sizes="100%"
                     alt="Song Cover"
                     title={data.title}
                 />

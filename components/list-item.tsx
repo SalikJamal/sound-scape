@@ -30,6 +30,7 @@ export default function ListItem({ image, name, href }: IListItemProps) {
                     className="object-cover"
                     src={image}
                     alt={name}
+                    sizes="100%"
                     fill
                 />
             </div>
