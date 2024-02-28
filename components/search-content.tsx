@@ -1,7 +1,7 @@
 "use client"
 
 import { ISong } from "@/types/types"
-import MediaItem from "./media-item"
+import MediaItem from "@/components/media-item"
 import LikeButton from "@/components/like-button"
 
 interface ISearchContentProps {
