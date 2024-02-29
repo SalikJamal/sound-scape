@@ -1,6 +1,6 @@
 "use client"
 
-import Box from "@/components/boxes"
+import Box from "@/components/box"
 
 
 export default function Error() {
