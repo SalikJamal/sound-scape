@@ -91,16 +91,26 @@ export default function PlayerContent({ song, songPath }: IPlayerContentProps) {
                 </div>
             </div>
 
-            <div className="flex md:hidden col-auto w-full justify-end items-center">
-                <div
-                    className="h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer"
-                    onClick={handlePlay}
-                >
-                    <Icon className="text-black" size={30} />
-                </div>
+            <div className="flex md:hidden col-auto w-full gap-x-2 justify-end items-center">
+                    <AiFillStepBackward
+                        className="text-neutral-400 cursor-pointer hover:text-white transition" 
+                        size={30} 
+                        onClick={onPlayPrevious}
+                    />
+                    <div
+                        className="h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer"
+                        onClick={handlePlay}
+                    >
+                        <Icon className="text-black" size={30} />
+                    </div>
+                    <AiFillStepForward
+                        className="text-neutral-400 cursor-pointer hover:text-white transition" 
+                        size={30} 
+                        onClick={onPlayNext}
+                    />
             </div>
 
-            <div className="hidden h-full md:flex justify-center items-center w-full max-w-[722px] gap-x-6">
+            <div className="h-full md:flex justify-center items-center w-full max-w-[722px] gap-x-6">
                 <AiFillStepBackward
                     className="text-neutral-400 cursor-pointer hover:text-white transition" 
                     size={30} 
