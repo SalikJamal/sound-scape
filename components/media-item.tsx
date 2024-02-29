@@ -1,8 +1,9 @@
 "use client"
 
-import useLoadImage from "@/hooks/useLoadImage";
+import useLoadImage from "@/hooks/useLoadImage"
+import usePlayer from "@/hooks/usePlayer"
 import { ISong } from "@/types/types"
-import Image from "next/image";
+import Image from "next/image"
 
 interface IMediaItemProps {
     data: ISong;
@@ -13,11 +14,11 @@ interface IMediaItemProps {
 export default function MediaItem({ data, onClick }: IMediaItemProps) {
     
     const imagePath = useLoadImage(data)
+    const player = usePlayer()
 
     const handleClick = () => {
         if(onClick) onClick(data.id)
-
-        // TODO: Default turn on player
+        return player.setId(data.id)
     }
     
     return (
