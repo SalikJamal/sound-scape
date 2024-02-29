@@ -25,7 +25,7 @@ export const postData = async ({ url, data }: { url: string, data?: { price: IPr
     })
 
     if(!res.ok) {
-        console.log("Error in POSt", { url, data, res })
+        console.log("Error in POST", { url, data, res })
         throw new Error(res.statusText)
     }
 

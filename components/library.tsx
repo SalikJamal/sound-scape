@@ -8,6 +8,7 @@ import { TbPlaylist } from "react-icons/tb"
 import { ISong } from "@/types/types"
 import MediaItem from "@/components/media-item"
 import useOnPlay from "@/hooks/useOnPlay"
+import useSubscribeModal from "@/hooks/useSubscribeModal"
 
 interface ILibraryProps {
     songs: ISong[];
@@ -18,13 +19,13 @@ export default function Library({ songs }: ILibraryProps) {
 
     const authModal = useAuthModal()
     const uploadModal = useUploadModal()
-    const { user } = useUser()
+    const subscribeModal = useSubscribeModal()
+    const { user, subscription } = useUser()
     const onPlay = useOnPlay(songs)
 
     const handleUpload = () => {
         if(!user) return authModal.onOpen()
-
-        //TODO: Check subscription
+        if(!subscription) return subscribeModal.onOpen()
         return uploadModal.onOpen()
     }
 

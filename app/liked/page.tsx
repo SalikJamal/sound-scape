@@ -1,6 +1,6 @@
 import getLikedSongs from "@/actions/getLikedSongs"
 import Header from "@/components/header"
-import LikedContent from "@/components/liked-content"
+import LikedContent from "@/components/liked/liked-content"
 import Image from "next/image"
 
 export const revalidate = 0

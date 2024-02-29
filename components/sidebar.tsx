@@ -49,7 +49,6 @@ export default function Sidebar({ children, songs }: ISidebarProps) {
                             />
                         ))}
                     </div>
-                    
                 </Box>
                 <Box className="overflow-y-auto h-full">
                     <Library songs={songs} />
