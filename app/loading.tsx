@@ -1,6 +1,6 @@
 "use client"
 
-import Box from "@/components/box"
+import Box from "@/components/boxes"
 import { BounceLoader } from "react-spinners"
 
 
